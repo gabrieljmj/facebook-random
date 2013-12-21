@@ -1,0 +1,148 @@
+body{
+	background: white;
+}
+
+li{
+	list-style-type: none;
+}
+
+ul{
+	list-style: none;
+	padding: 0px;
+	margin-bottom: 0px;
+}
+
+h2{
+	margin: 0px;
+}
+
+header{
+	position: fixed;
+	width: 100%;
+	top: 0;
+	left: 0;
+	right: 0;
+	text-align: center;
+	background: #333;
+	color: white;
+	box-shadow: 2px 2px 2px #ccc;
+	-webkit-box-shadow: 2px 2px 2px #ccc;
+	-moz-box-shadow: 5px 5px 10px #ccc;
+}
+
+.content{
+	margin-top: 85px;
+}
+
+.footer{
+	padding: 10px;
+	width: 500px;
+	margin: 0 auto;
+	text-align: center;
+	width: 265px;
+}
+
+.footer .li{
+	float: left;
+	margin-right: 5px;
+	border-right: 1px solid #ccc;
+	padding-right: 5px;
+}
+
+.form{
+	max-width: 500px;
+	padding: 10px;
+	margin: 0 auto;
+	border-radius: 4px;
+	background: #f7f5fa;
+	border: 1px solid #ccc;
+}
+
+.form .post-url-div, 
+.form .required-comment-div, 
+.form .max-winners-div,
+.form .haffling-type-div{
+	margin-bottom: 10px;
+}
+
+.form .button-div{
+	text-align: center;
+}
+
+.result, 
+.error{
+	max-width: 500px;
+	margin: 0 auto;
+	padding: 10px;
+	display: none;
+}
+
+.result .div-title, 
+.error .error-title{
+	border-bottom: 1px solid #e5e5e5;
+	margin-bottom: 10px;
+}
+
+.user-winner{
+	width: 100%;
+	border: 1px solid #ccc;
+	margin-bottom: 10px;
+	border-radius: 4px;
+}
+
+.user-winner .user-img{
+	text-align: center;
+	width: 60px;
+	height: 60px;
+	float: left;
+	background: #ffffff;
+	border: 1px solid #ccc;
+	margin: 5px;
+	padding: 5px;
+}
+
+.user-name, 
+.user-comment{
+}
+
+.user-name{
+	border-bottom: 1px solid #ccc;
+	padding: 5px;
+	background: #f7f5fa;
+}
+
+.user-comment{
+	padding: 5px;
+ }
+
+ .img1{
+ 	background: url('../images/load.gif') no-repeat center;
+ }
+
+.bg{ 
+	filter: alpha(opacity=80); 
+	opacity: 0.80; 
+	background: white; 
+	position: fixed; 
+	width: 100%; 
+	height: 100%; 
+	top: 0; 
+	left: 0; bottom: 0; 
+	eight: 0; 
+	z-index: 1400;
+}
+
+.modal2{ 
+	width: 199px; 
+	height: 30x; 
+	z-index: 1500; 
+	position: fixed; 
+	left: 50%; 
+	top: 50%; 
+	margin-left: -100px; 
+	margin-top: -40px;
+}
+
+#load{
+	display: none;
+}
