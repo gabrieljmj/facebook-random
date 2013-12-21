@@ -1,0 +1,3 @@
+ssh-add -1
+ssh-add -1.pub
+composer.phar
