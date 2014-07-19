@@ -1,4 +1,3 @@
-FBRandomLike
-============
-
-Raffles via comments or tanned a picture of a page
+facebook-random
+===============
+Random comments or likes of a post on Facebook (old code)

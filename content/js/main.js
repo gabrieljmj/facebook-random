@@ -91,7 +91,7 @@ $(document).ready(function(){
 				error: function(dataError){
 					$('.error').show();
 					$('.error-title').html('<h2>Erro:</h2>');
-					$('#error-description').html('A URL da postagem é invalida!');
+					$('#error-description').html('A URL da postagem é inválida!');
 					$('#load').hide();
 				},
 				success: function(data){
@@ -214,19 +214,6 @@ $(document).ready(function(){
 											$('#result-users').append('<li class="user-winner"><div class="user-img"><img class="img1" src="http://graph.facebook.com/' + userId + '/picture" width="50" height="50" /></div><div class="user-name"><a href="http://facebook.com/profile.php?id=' + userId + '" target="_blank">' + userName + '</a></div><div class="user-comment">' + userComment + '</div><div style="clear: both;"></div></li>');
 										}
 										fileContent = fileContent + '] }';
-										if($('#save').is(':checked')){
-											$.ajax({
-												type: 'GET',
-												url: 'save.php',
-												data: {
-													json: fileContent
-												},
-												dataType: 'json',
-												success: function(dataReturn){
-													$('.div-title').html('<h2>Resultado:</h2> <a href="raffles/' + dataReturn.randomId + '.json">http://fbrandom.com/random/' + dataReturn.randomId + '</a>');
-												}
-											});
-										}
 									}
 									$('#load').hide();
 								}
@@ -316,25 +303,16 @@ $(document).ready(function(){
 									var userId = usersAllowed[randomNumber]['id'];
 									var userComment = usersAllowed[randomNumber]['comment'];
 									var userName = usersAllowed[randomNumber]['name'];
-									fileContent = fileContent + '\n{"id": "' + userId + '", "name": "' + userName + '", "comment": "' + userComment + '"}, ';
-									$('#result-users').append('<li class="user-winner"><div class="user-img"><img class="img1" src="http://graph.facebook.com/' + userId + '/picture" width="50" height="50" /></div><div class="user-name"><a href="http://facebook.com/profile.php?id=' + userId + '" target="_blank">' + userName + '</a></div><div class="user-comment">' + userComment + '</div><div style="clear: both;"></div></li>');
+									if( typeAllowed == 'likes' ){
+										fileContent = fileContent + '\n{"id": "' + userId + '", "name": "' + userName + '"}, ';
+										$('#result-users').append('<li class="user-winner"><div class="user-img"><img class="img1" src="http://graph.facebook.com/' + userId + '/picture" width="50" height="50" /></div><div class="user-name"><a href="http://facebook.com/profile.php?id=' + userId + '" target="_blank">' + userName + '</a></div><div class="user-comment"></div><div style="clear: both;"></div></li>');
+									}else{
+										fileContent = fileContent + '\n{"id": "' + userId + '", "name": "' + userName + '", "comment": "' + userComment + '"}, ';
+										$('#result-users').append('<li class="user-winner"><div class="user-img"><img class="img1" src="http://graph.facebook.com/' + userId + '/picture" width="50" height="50" /></div><div class="user-name"><a href="http://facebook.com/profile.php?id=' + userId + '" target="_blank">' + userName + '</a></div><div class="user-comment">' + userComment + '</div><div style="clear: both;"></div></li>');
+									}
 								}
 
 								fileContent = fileContent + ']\n}';
-
-								if($('#save').is(':checked')){
-									$.ajax({
-										type: 'POST',
-										url: 'save.php',
-										data: {
-											json: fileContent
-										},
-										dataType: 'json',
-										success: function(dataReturn){
-											$('.div-title').html('<h2>Resultado:</h2> <a href="raffles/' + dataReturn.randomId + '.json">http://fbrandom.com/random/' + dataReturn.randomId + '</a>');
-										}
-									});
-								}
 							}
 							$('#load').hide();
 						}
