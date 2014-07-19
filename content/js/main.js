@@ -9,7 +9,7 @@ $(document).ready(function(){
 		}else if($(this).attr('value') == 'comments' || $(this).attr('value') == 'like-and-comment'){
 			$('#required-comment-type').remove();
 			$('#required-comment').remove();
-			$('.required-comment-div').append('<select id="required-comment-type" required="required" class="form-control"><option disabled="disabled" selected="selected">Qual o tipo de comentário válido?</option><option value="text">Texto qualquer</option><option value="email">Email</option><option value="determined-text">Determinado texto</option></select>');
+			$('.required-comment-div').append('<select id="required-comment-type" required="required" class="form-control" style="margin-top: 10px;"><option disabled="disabled" selected="selected">Qual o tipo de comentário válido?</option><option value="text">Texto qualquer</option><option value="email">Email</option><option value="determined-text">Determinado texto</option></select>');
 			$('#required-comment-type').change(function(){
 				if($(this).attr('value') == 'determined-text'){
 					$('.required-comment-div').append('<input type="text" id="required-comment" placeholder="Comentário obrigatório da pessoa" class="form-control" style="margin-top: 10px;" />');
