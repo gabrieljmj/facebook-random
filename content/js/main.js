@@ -33,18 +33,7 @@ $(document).ready(function(){
 			var urlToGetLikes = 'http://graph.facebook.com/[POST-ID]/likes';
 		}
 
-		var postUrl = $('#post-url').attr('value');
-
-		if(!verifyUrl(postUrl, 'facebook.com') && !verifyUrl(postUrl, 'www.facebook.com')){
-			$('.error').show();
-			$('.error-title').html('<h2>Erro:</h2>');
-			$('#error-description').html('A URL da postagem é invalida!');
-			$('#load').hide();
-		}else{
-			$('.error-title').html('');
-			$('#error-description').html('');
-			$('.error').hide();
-			$('#result').html('<div class="div-title">\n</div>\n<div id="result-users">\n</div>\n<div style="clear:both;"></div>');
+		var postId = $('#post-id').attr('value');
 
 			var maxWinners = $('#max-winners').attr('value');
 
@@ -58,16 +47,6 @@ $(document).ready(function(){
 				$('.error-title').html('');
 				$('#error-description').html('');
 				$('.error').hide();
-
-			if(getPostType(postUrl) == 'video'){
-				var postId = jsGet('v', postUrl);
-			}else if(getPostType(postUrl) == 'photo.php'){
-				if(!jsGet('v', postUrl)){
-					var postId = jsGet('fbid', postUrl);
-				}else{
-					var postId = jsGet('v', postUrl);
-				}
-			}
 
 			var urlToGetFinal = urlToGetData.replace('[POST-ID]', postId);
 
@@ -91,7 +70,7 @@ $(document).ready(function(){
 				error: function(dataError){
 					$('.error').show();
 					$('.error-title').html('<h2>Erro:</h2>');
-					$('#error-description').html('A URL da postagem é inválida!');
+					$('#error-description').html('O ID da postagem é inválido!');
 					$('#load').hide();
 				},
 				success: function(data){
@@ -320,7 +299,7 @@ $(document).ready(function(){
 				}
 
 			});
-		}
+		
 	}
 	});
 });
