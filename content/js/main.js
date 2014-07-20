@@ -80,12 +80,18 @@ $(document).ready(function(){
 					$('.error-title').html('');
 					$('#error-description').html('');
 					$('.error').hide();
-					var amountOfComments = data.data.length;
+					var amountOfData = data.data.length;
 
-					if(amountOfComments == 0){
+					if(amountOfData == 0){
+						if(typeAllowed == 'likes'){
+							var typeName = 'curtidas';
+						}else{
+							var typeName = 'comentários';
+						}
+
 						$('.error').show();
 						$('.error-title').html('<h2>Erro:</h2>');
-						$('#error-description').html('Esta postagem não possui comentários ou não existe!');
+						$('#error-description').html('Esta postagem não possui ' + typeName + ', não existe ou não foi postada em uma página!');
 						$('#load').hide();
 					}else{
 						$('.error-title').html('');
@@ -107,9 +113,9 @@ $(document).ready(function(){
 									var likes = dataLikes.data;
 									var usersAllowed = new Array();
 
-									if(likes.length > amountOfComments){
+									if(likes.length > amountOfData){
 										for(i = 0; i < likes.length; i++){
-											for(n = 0; n < amountOfComments; n++){
+											for(n = 0; n < amountOfData; n++){
 												var user = data.data[n].from.name;
 												var id = data.data[n].from.id;
 												var comment = data.data[n].message;
@@ -127,7 +133,7 @@ $(document).ready(function(){
 											}
 										}
 									}else{
-										for(n = 0; n < amountOfComments; n++){
+										for(n = 0; n < amountOfData; n++){
 											for(i = 0; i < likes.length; i++){
 												var user = data.data[n].from.name;
 												var id = data.data[n].from.id;
@@ -203,7 +209,7 @@ $(document).ready(function(){
 						}else{
 							var fileContent = '{"winners": [';
 							var usersAllowed = new Array();
-							for(i = 0; i < amountOfComments; i++){
+							for(i = 0; i < amountOfData; i++){
 								if(typeAllowed == 'likes'){
 									var user = data.data[i].name;
 									var id = data.data[i].id;
