@@ -21,6 +21,9 @@ $(document).ready(function(){
 	});
 
 	$('#raffle').click(function(){
+		$('#result').removeAttr('style');
+		$('#result').html('<div class="div-title" id="result-title"></div><div id="result-users"></div>');
+		$('#result-title').css('border', 'none');
 		if($('#raffle-type').attr('value') == 'likes'){
 			var typeAllowed = 'likes';
 			var urlToGetData = 'http://graph.facebook.com/[POST-ID]/likes';
